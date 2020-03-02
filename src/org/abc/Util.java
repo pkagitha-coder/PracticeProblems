@@ -1,5 +1,6 @@
 package org.abc;
 
+import java.math.BigInteger;
 import java.util.Collection;
 
 public class Util {
@@ -22,6 +23,20 @@ public class Util {
 
     public static void printArray(int[] nums) {
         for(int num : nums) {
+            System.out.print(num+"\t");
+        }
+        System.out.println();
+    }
+
+    public static void printArray(long[] nums) {
+        for(long num : nums) {
+            System.out.print(num+"\t");
+        }
+        System.out.println();
+    }
+
+    public static void printArray(BigInteger[] nums) {
+        for(BigInteger num : nums) {
             System.out.print(num+"\t");
         }
         System.out.println();
