@@ -12,6 +12,8 @@ public class MakeCandies {
         //System.out.println(minimumPasses(4294967296l, 4294967296l, 1000000000l, 10000000000l)); //4294967296 4294967296 1000000000 10000000000
 
         System.out.println(minimumPasses(5361, 3918, 8447708, 989936375520l)); //5361 3918 8447708 989936375520 => 3577
+
+        //System.out.println(989936375520l - 989897931048l);
     }
 
     static long minimumPasses(long m, long w, long p, long n) {
@@ -44,14 +46,16 @@ public class MakeCandies {
 
                 if (noOfIterToRecoverP < remainingIterWithCurrentCfg) {
                     reconfigure(config, noOfResCanBeAdded, p);
-                    long iter = (p - config[2]) / Math.multiplyExact(config[0], config[1]);
-                    forwardIter(config,iter);
+                   /* long iter = (p - config[2]) / Math.multiplyExact(config[0], config[1]);
+                    forwardIter(config,iter);*/
                 }else {
-                    forwardIter(config,remainingIterWithCurrentCfg);
+                    /*forwardIter(config,remainingIterWithCurrentCfg);*/
                 }
+                forwardIter(config,1);
             } else {
-                long skipIters = Math.min(p - config[2], n - config[2]) / perIter;
-                forwardIter(config,skipIters);
+                /*long skipIters = Math.min(p - config[2], n - config[2]) / perIter;
+                forwardIter(config,skipIters);*/
+                forwardIter(config,1);
             }
         }catch(ArithmeticException ae) {
             //overflow
@@ -65,7 +69,7 @@ public class MakeCandies {
         if(iter <=0) {
             iter =1;
         }
-        config[2]+=(iter * (Math.multiplyExact(config[0] , config[1])));
+        config[2] =Math.addExact(config[2],iter * (Math.multiplyExact(config[0] , config[1])));
         config[3]+=iter;
     }
 

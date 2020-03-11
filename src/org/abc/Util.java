@@ -14,6 +14,16 @@ public class Util {
         System.out.println();
     }
 
+    public static void printMatrix(boolean[][] matrix) {
+        for(int r=0;r<matrix.length;r++) {
+            for(int c=0;c<matrix[r].length;c++) {
+                System.out.print(matrix[r][c] + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     public static void printList(Collection coll) {
         for(Object obj : coll) {
             System.out.print(obj.toString() + "\t");
